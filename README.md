@@ -12,13 +12,15 @@ Minimum supported Go Version: 1.13.1
 
 ```yaml
 scripts:
-  - name: success
-    script: sleep 5
-
-  - name: failure
+  - name: 'docker'
+    script: ./check_whether_process_alive.sh docker 
+  - name: 'rsyslog'
+    script: ./check_whether_process_alive.sh rsyslog
+  - name: 'failure'
     script: sleep 2 && exit 1
-
-  - name: timeout
+  - name: 'success'
+    script: sleep 4
+  - name: 'timeout'
     script: sleep 5
     timeout: 1
 ```
