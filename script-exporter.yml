@@ -1,10 +1,13 @@
 scripts:
-  - name: 'success'
-    script: sleep 5
+  - name: 'docker'
+    script: ./check_whether_process_alive.sh docker 
 
+  - name: 'rsyslog'
+    script: ./check_whether_process_alive.sh rsyslog
   - name: 'failure'
     script: sleep 2 && exit 1
-
+  - name: 'success'
+    script: sleep 4
   - name: 'timeout'
     script: sleep 5
     timeout: 1
